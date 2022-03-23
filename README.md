@@ -1,9 +1,9 @@
 # Filtrado de Fibras
 
 ## Descripción:
-El presente repositorio contiene el algoritmo utilizado al momento de la presentación de la memoria de título **"OPTIMIZACIÓN EN ALGORITMO DE SEGMENTACIÓN AUTOMÁTICA DE FASCÍCULOS DE MATERIA BLANCA SUPERFICIAL EN DATOS DE TRACTOGRAFÍAS PRBABILÍSTICAS"**, desarrollado por **Felipe Pineda S.** para optar al grado de ingeniero civíl electrónico en la Universidad de Concepción.
+El presente repositorio contiene el algoritmo utilizado al momento de la presentación de la memoria de título **"OPTIMIZACIÓN EN ALGORITMO DE SEGMENTACIÓN AUTOMÁTICA DE FASCÍCULOS DE MATERIA BLANCA SUPERFICIAL EN DATOS DE TRACTOGRAFÍAS PROBABILÍSTICAS"**, desarrollado por **Felipe Pineda S.** para optar al grado de ingeniero civíl electrónico en la Universidad de Concepción.
 
-En este se desarrolla una implementación en C del algoritmo de filtrado desarrollado en Python por **Cristobal Mendoza** en la memomria de título "**...ANOTAR_NOMBRE_MEMORIA_CRISTOBAL...**". El objetivo principal de esta implementación es disminuir el tiempo de ejecución en el algoritmo de filtrado de fibras ruidosas usando la distancia SSPD como métrica comparativa. El objetivo secundario es desarrollar una librería que simplifique el trabajo con fibras en C para futuros trabajos en este ámbito.
+En este se desarrolla una implementación en C del algoritmo de filtrado desarrollado en Python por **Cristobal Mendoza s.** en la memomria de título "**MEJORA DE SEGMENTACIÓN AUTOMÁTICA DE FASCÍCULOS DE MATERIA BLANCA SUPERFICIAL EN DATOS DE TRACTOGRAFÍAS PROBABILÍSTICA**". El objetivo principal de esta implementación es disminuir el tiempo de ejecución en el algoritmo de filtrado de fibras ruidosas usando la distancia SSPD como métrica comparativa. El objetivo secundario es desarrollar una librería que simplifique el trabajo con fibras en C para futuros trabajos en este ámbito.
 
 ## Contenido:
 El principal contenido son las librearías desarrolladas en C (1), los archivos main.c para las implementaciones de ISOMAP y SSPD_3D y archivos desarrollados en MATLAB destinados a realizar pruebas de visualización de los fascículos.
