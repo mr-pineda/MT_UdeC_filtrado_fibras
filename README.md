@@ -1,6 +1,6 @@
 # Filtrado de Fibras
 
-![Logo_Udec](/Logo%20UdeC.png)
+![Logo_Udec](images/Logo%20UdeC.png)
 
 ## Descripción:
 El presente repositorio contiene el algoritmo utilizado al momento de la presentación de la memoria de título **"OPTIMIZACIÓN EN ALGORITMO DE SEGMENTACIÓN AUTOMÁTICA DE FASCÍCULOS DE MATERIA BLANCA SUPERFICIAL EN DATOS DE TRACTOGRAFÍAS PROBABILÍSTICAS"**, desarrollado por **Felipe Pineda S.** para optar al grado de ingeniero civíl electrónico en la Universidad de Concepción.
@@ -22,6 +22,20 @@ Los otros elementos son generados por el IDE utilizado ([Code::Blocks](https://w
 - **Archivos main.c**: Las implementaciones de los algoritmos de filtrado por ISOMAP y SSPD_3D estan ubicados en sus respectivos directorios. De forma adicional al filtrado se añadió al script una sección que mide el tiempo de filtrado por fascículo. En el caso del filtrado por ISOMAP, se muestra el tiempo empleado por la reduccion dimensional (ISOMAP o MDS) y el tiempo empleado total (reducción dimensional y filtrado) por fascículo.
 
 - **Archivos de MATLAB (.m)**: Contiene una implmenetación simplificada del algoritmo de MDS y un visualizador de fibras en espacio tridimensional y bidimensional. Este algoritmo fue desarrollado con el fin de corroborar los resultados obtenidos mediante la implementación en C
+
+## Resultados:
+
+### Fascículo sin filtrar
+![fascículo sin filtro](images/fasic_sin_filtro.png)
+
+### Fascículo filtrado por ISOMAP
+![fascículo sin filtro](images/fasic_ISOMAP.png)
+
+### Fascículo filtrado por MDS
+![fascículo sin filtro](images/fasic_MDS.png)
+
+### Fascículo filtrado por SSPD 3D
+![fascículo sin filtro](images/fasic_SSPD.png)
 
 ## Observaciones:
 
