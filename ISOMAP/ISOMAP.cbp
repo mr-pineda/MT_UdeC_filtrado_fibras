@@ -15,10 +15,6 @@
 					<Add option="-g" />
 					<Add option="-fopenmp" />
 				</Compiler>
-				<Linker>
-					<Add library="../../../../../../Program Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/libgomp.a" />
-					<Add library="../../../../../../Program Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/libgomp.dll.a" />
-				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/ISOMAP" prefix_auto="1" extension_auto="1" />
@@ -31,8 +27,6 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="../../../../../../Program Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/libgomp.a" />
-					<Add library="../../../../../../Program Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/libgomp.dll.a" />
 				</Linker>
 			</Target>
 		</Build>
@@ -51,6 +45,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../headers_sources/isomap.h" />
+		<Unit filename="../headers_sources/jacobi_eigenvalue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../headers_sources/jacobi_eigenvalue.h" />
 		<Unit filename="../headers_sources/moreMath.c">
 			<Option compilerVar="CC" />
 		</Unit>

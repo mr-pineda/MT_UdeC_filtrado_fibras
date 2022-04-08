@@ -25,15 +25,14 @@ int main(){
     char newName[60];           //Prefijo que se le añadirá a los archivos de salida
 
     /// CAMBIAR ENTRE MDS / ISOMAP SEGUN USO *****
+    // Alterna entre imprimir ISOMAP o MDS segun sea necesario
     char* algorithm = "ISOMAP";
-    int num_threads = 1;
     /// ******************************************
 
     /// Variables relacionadas con fibras
     fasciculus bundleIn;    //Guarda los datos leidos de los archivos
     fasciculus bundleOut;   //Guarda los datos que se escribirán en archivos
     float** matrix = NULL;  //Almacena distancias ssdpd entre fibras
-//    float* suma = NULL;     //vector de suma de distancias entre fibras.
     int* idx_v = NULL;      //vector indices de fibras cuya distancia esta en un percentil especifico
 
     ///control de tiempo
@@ -58,6 +57,15 @@ int main(){
     char**names = extFinder(input_dir,".bundles",&numFiles);
 
 
+
+
+/// Sección para elegir el número de núcleos a utilizar por consola
+/// DESCOMENTAR PARA UTILIZAR
+/*
+    Al inicio, el programa determina el número máximo de hebras disponibles.
+    Se le solicita al usuario elegir entre 1 y el máximo de hebras.
+*/
+    int num_threads = 1; //NÚMERO DE HEBRAS POR SCRIPT
 //    printf(" Hebras disponibles del procesador: %d\n",MAX_THREADS);
 
 
@@ -68,6 +76,10 @@ int main(){
 //        scanf("%d",&num_threads);
 //    }
     omp_set_num_threads(num_threads);
+
+
+/// Sección percentil de fibras descartadas por consola
+/// DESCOMENTAR PARA UTILIZAR
     float perc =70.0;
 //    printf("Ingrese percentil de fibras a conservar (entre 10%% y 90%%): ");
 //    scanf("%f",&perc);
@@ -164,7 +176,7 @@ int main(){
     minutos=((int)(clock_time/60))%60;
     horas = ((int)clock_time)/3600;
     printf("\n\nTiempo del algoritmo: %d hrs %d min %d seg %d ms.\n\n",horas,minutos,segundos,miliseg);
-    //system("pause");
+    system("pause");
 
     for(int i=0;i<numFiles;i++){
         free(names[i]);

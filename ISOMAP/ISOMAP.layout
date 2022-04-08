@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
-	<ActiveTarget name="Debug" />
-	<File name="..\headers_sources\isomap.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+	<ActiveTarget name="Release" />
+	<File name="..\headers_sources\sspdlib.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5177" topLine="204" />
+			<Cursor1 position="1789" topLine="0" />
 		</Cursor>
-		<Folding>
-			<Collapse line="199" />
-			<Collapse line="214" />
-			<Collapse line="226" />
-			<Collapse line="234" />
-			<Collapse line="243" />
-			<Collapse line="262" />
-			<Collapse line="302" />
-			<Collapse line="322" />
-		</Folding>
+	</File>
+	<File name="..\headers_sources\jacobi_eigenvalue.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="180" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\headers_sources\directory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="786" topLine="0" />
+		</Cursor>
 	</File>
 	<File name="..\headers_sources\sspdlib.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
 		<Cursor>
@@ -29,6 +29,16 @@
 			<Collapse line="256" />
 		</Folding>
 	</File>
+	<File name="..\headers_sources\moreMath.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="479" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="..\headers_sources\isomap.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1574" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="..\headers_sources\directory.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2484" topLine="12" />
@@ -41,34 +51,38 @@
 			<Collapse line="72" />
 		</Folding>
 	</File>
-	<File name="..\headers_sources\moreMath.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="479" topLine="18" />
+			<Cursor1 position="6695" topLine="0" />
 		</Cursor>
+	</File>
+	<File name="..\headers_sources\isomap.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7106" topLine="203" />
+		</Cursor>
+		<Folding>
+			<Collapse line="199" />
+			<Collapse line="214" />
+			<Collapse line="226" />
+			<Collapse line="234" />
+			<Collapse line="243" />
+			<Collapse line="262" />
+			<Collapse line="322" />
+			<Collapse line="343" />
+			<Collapse line="347" />
+			<Collapse line="351" />
+			<Collapse line="361" />
+			<Collapse line="367" />
+		</Folding>
 	</File>
 	<File name="..\headers_sources\fiberlib.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2944" topLine="15" />
 		</Cursor>
 	</File>
-	<File name="..\headers_sources\directory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\headers_sources\jacobi_eigenvalue.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="786" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="215" topLine="39" />
-		</Cursor>
-	</File>
-	<File name="..\headers_sources\sspdlib.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1789" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="..\headers_sources\isomap.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="291" topLine="25" />
+			<Cursor1 position="8627" topLine="266" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

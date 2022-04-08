@@ -139,7 +139,7 @@
 	"../headers_sources/moreMath.h"
 	"../headers_sources/sspdlib.h"
 
-1646240917 source:c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\directory.c
+1649374028 source:c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\directory.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -151,7 +151,7 @@
 	<time.h>
 	"directory.h"
 
-1646240917 c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\directory.h
+1649374028 c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\directory.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -162,7 +162,7 @@
 	<limits.h>
 	<time.h>
 
-1646240917 source:c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\fiberlib.c
+1649374028 source:c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\fiberlib.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -176,7 +176,7 @@
 	"fiberlib.h"
 	"moreMath.h"
 
-1646240917 c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\fiberlib.h
+1649374028 c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\fiberlib.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -188,7 +188,7 @@
 	<time.h>
 	<errno.h>
 
-1646240917 c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\moremath.h
+1649374028 c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\moremath.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -199,7 +199,7 @@
 	<limits.h>
 	<time.h>
 
-1646240917 source:c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\moremath.c
+1649374028 source:c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\moremath.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -211,7 +211,7 @@
 	<time.h>
 	"moreMath.h"
 
-1646240917 source:c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\sspdlib.c
+1649374028 source:c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\sspdlib.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -226,7 +226,7 @@
 	"sspdlib.h"
 	"moreMath.h"
 
-1646240917 c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\sspdlib.h
+1649374028 c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\sspdlib.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -240,7 +240,7 @@
 	"fiberlib.h"
 	"moreMath.h"
 
-1646240917 source:c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\isomap\main.c
+1649379512 source:c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\isomap\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -250,13 +250,14 @@
 	<float.h>
 	<stdbool.h>
 	<omp.h>
+	"../headers_sources/moreMath.h"
 	"../headers_sources/directory.h"
 	"../headers_sources/fiberlib.h"
-	"../headers_sources/moreMath.h"
 	"../headers_sources/sspdlib.h"
 	"../headers_sources/isomap.h"
+	"../headers_sources/jacobi_eigenvalue.h"
 
-1646240917 c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\isomap.h
+1649379512 c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\isomap.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -267,7 +268,7 @@
 	<stdbool.h>
 	"moreMath.h"
 
-1646281938 source:c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\isomap.c
+1649379555 source:c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\isomap.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -280,6 +281,7 @@
 	<omp.h>
 	"isomap.h"
 	"moreMath.h"
+	"jacobi_eigenvalue.h"
 
 1646236345 source:c:\users\p_pin\desktop\repo\mt_udec_filtrado_fibras\headers_sources\directory.c
 	<stdio.h>
@@ -422,4 +424,14 @@
 	"../headers_sources/fiberlib.h"
 	"../headers_sources/sspdlib.h"
 	"../headers_sources/isomap.h"
+
+1649382299 source:c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\jacobi_eigenvalue.c
+	<math.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<time.h>
+	"jacobi_eigenvalue.h"
+
+1649381250 c:\users\p_pin\onedrive\escritorio\repo\mt_udec_filtrado_fibras\headers_sources\jacobi_eigenvalue.h
 
