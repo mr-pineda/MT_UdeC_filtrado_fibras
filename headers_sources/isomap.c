@@ -13,7 +13,7 @@
 #include "moreMath.h"
 #include "jacobi_eigenvalue.h"
 
-/// Algoritmos para obtener distancias y func básicas auxiliares
+/// Algoritmos para obtener distancias y func bï¿½sicas auxiliares
 
 void dist_mat_op(float** coord, int num_points, float matrix[num_points][num_points]){
     for (int i=0; i<num_points;i++){
@@ -40,10 +40,10 @@ void swap_i(int *xp, int *yp){
 
 
 
-/// Obtención de KNN y contrucción del grafo
+/// Obtenciï¿½n de KNN y contrucciï¿½n del grafo
 void find_kmin_index(int n, float arr[n], int k, int k_min[k]){
-    // Adaptación de l algoritmo de selection sort, encuentra los k valores minimos de un vector
-    // y retorna sus índices.
+    // Adaptaciï¿½n de l algoritmo de selection sort, encuentra los k valores minimos de un vector
+    // y retorna sus ï¿½ndices.
     int i, j, min_idx;
     int idx_vec[n];
     float temp[n];
@@ -104,7 +104,7 @@ void graph_mat(int n, float d_mat[n][n], int k, float graph[n][n]){
 }
 
 
-/// Obtención de ruta más corta (Algoritmo de dijkstra)
+/// Obtenciï¿½n de ruta mï¿½s corta (Algoritmo de dijkstra)
 
 int find_min_index(int n, float arr[n]){
     float min = arr[0];
@@ -195,7 +195,7 @@ void fiber2geomat(int n, float** coord, int k, float geomat[n][n]){
 }
 
 
-/// Aplicación del algoritmo de MDS
+/// Aplicaciï¿½n del algoritmo de MDS
 
 void centering_matrix(int n, float c_mat[n][n]){
     float trian = -1.0/n;
@@ -373,6 +373,6 @@ void flip_ud(int n, float arr_2d[2][n]){
 
 void flip_lr(int n, float arr_2d[2][n]){
     for(int i=0;i<n;i++){
-         arr_2d[0][i]= -arr_2d[1][i];
+         arr_2d[0][i]= -arr_2d[0][i];
     }
 }
