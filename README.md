@@ -188,6 +188,7 @@ int* percentile(float arr[], int arr_size, float perc)
    - ```perc``` : Percentil de elementos que se quiere obtener.
 
    **RETORNO:** Retorna un arreglo con los indices de los elementos que pertenescan al percentil indicado. El primer elemento del arreglo es el elemento que corresponde al numero de elementos indicado por el porcentaje.
+   
    ---
 
 ```c
@@ -272,6 +273,7 @@ fasciculus selectFibers(fasciculus bundle, int* selected)
    - ```selected``` : Arreglo de N+1 enteros que contiene los indices de las N fibras a seleccionar. El primer elemento del arreglo es la cantidad de fibras a seleccionar.
 
    **RETORNO:** Retorna una estructura de tipo fasciculo con las fibras seleccionadas.
+   
 ---
 
 ```c
@@ -372,6 +374,7 @@ float e_sspd_py(fiber f1, fiber f2, int dim)
    - ```dim``` : Dimensión de las fibras (2 o 3).
 
    **RETORNO:** Retorna la distancia SSPD entre dos fibras.
+   
 ---
 
 ```c
@@ -719,4 +722,4 @@ void flip_lr(int n, float arr_2d[2][n]);
 
  **(1)** _Además de las librerías desarrolladas, se reaquiere añadir las librerías "strings.h", "limits.h", "math.h", "stdbool.h" y "time.h". En el desarrollo de este algoritmo se utilizó el compilador [MinGW-w64](https://www.mingw-w64.org/), el cual estaba incluído en el IDE, permitiendo el uso de las librearias "dirent.h" para el trabajo con directorios y "omp.h" para el uso de programación paralela._
     
- **(2)** _En el algoritmo de MDS clásico se utiliza ala obtención de los valores propios de una matriz a travéz del método de Jacobi. Para esto se utilizó la implementación desarrollada por **John Burkardt** disponible en https://people.sc.fsu.edu/~jburkardt/c_src/jacobi_eigenvalue/jacobi_eigenvalue.html . Este algoritmo esta bajo la licencia [GNU LGPL](https://www.gnu.org/licenses/lgpl-3.0.en.html)._
+ **(2)** _En el algoritmo de MDS clásico se obtienen los valores propios de una matriz a travéz del método de Jacobi. Para esto se utilizó la implementación desarrollada por **John Burkardt** disponible en https://people.sc.fsu.edu/~jburkardt/c_src/jacobi_eigenvalue/jacobi_eigenvalue.html . Este algoritmo esta bajo la licencia [GNU LGPL](https://www.gnu.org/licenses/lgpl-3.0.en.html)._
