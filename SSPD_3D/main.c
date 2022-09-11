@@ -21,12 +21,12 @@ int main(){
     /// Variables relacionadas con directorio
     char current_dir[PATH_MAX]; //Directorio de trabajo (donde se ubica el .exe)
     char input_dir[PATH_MAX];   //Directorio donde se ubican archivos .bundle y .bundlesdata
-    char output_dir[PATH_MAX];  //Directorio donde se guardarán los archivos creados
-    char newName[60];           //Prefijo que se le añadirá a los archivos de salida
+    char output_dir[PATH_MAX];  //Directorio donde se guardarï¿½n los archivos creados
+    char newName[60];           //Prefijo que se le aï¿½adirï¿½ a los archivos de salida
 
     /// Variables relacionadas con fibras
     fasciculus bundleIn;    //Guarda los datos leidos de los archivos
-    fasciculus bundleOut;   //Guarda los datos que se escribirán en archivos
+    fasciculus bundleOut;   //Guarda los datos que se escribirï¿½n en archivos
     float** matrix = NULL;  //Almacena distancias ssdpd entre fibras
 //    float* suma = NULL;     //vector de suma de distancias entre fibras.
     int* idx_v = NULL;      //vector indices de fibras cuya distancia esta en un percentil especifico
@@ -44,7 +44,7 @@ int main(){
     strcat(input_dir,"/FinalBundles"); //Se especifica el sub-directorio de archivos de entrada (Debe estar ubicado en el mismo directorio del .exe)
 
     strcpy(output_dir,current_dir);
-    strcat(output_dir,"/SSDPD3D_C"); //Algoritmo análogo para el directorio de salida
+    strcat(output_dir,"/SSDPD3D_C"); //Algoritmo anï¿½logo para el directorio de salida
     mkdir(output_dir);//Se crea un carpeta con el nombre del directorio de salida
 
     int numFiles;
