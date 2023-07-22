@@ -38,7 +38,6 @@ int main(){
     ///control de tiempo
     clock_t  clockSspd, clockIsoMds, clockTotal;
     double timeSspd, timeIsoMds, timeTotal;
-    double t_prom = 0.0;
     
     printf("EJEMPLO DE FILTRADO DE CLUSTER EN CONSOLA\n\n");
     printf(" Modo de uso:\n"

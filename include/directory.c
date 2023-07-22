@@ -88,8 +88,8 @@ void cleanNames(char** nameList,int numFiles){
     nameList=NULL;
 }
 
-void get_current_dir(char c_dir[PATH_MAX]){
-    if (getcwd(c_dir, PATH_MAX) != NULL) {//Obtención del directorio actual del .exe
+void get_current_dir(char* c_dir){
+    if (getcwd(c_dir, PATH_MAX) != NULL) {//Obtenciï¿½n del directorio actual del .exe
         replaceChar(c_dir,strlen(c_dir),'\\','/');//Se cambias los \ por / para evitar conflictos de string
     } else {
         perror("getcwd() error");//Error en caso de que no obtenga el directorio

@@ -3,10 +3,9 @@
 !.vscode/settings.json
 !.vscode/tasks.json
 
-*/bin/*
-*/obj/*
+bin/
+fibers/
 *.cbp
 *.depend
 *.layout
 *.exe
-fibers/
