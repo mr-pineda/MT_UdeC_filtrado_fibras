@@ -1,15 +1,15 @@
-# include <math.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include <time.h>
+#include <math.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
 
-# include "jacobi_eigenvalue.h"
+#include "jacobi_eigenvalue.h"
 
 /******************************************************************************/
 
-void jacobi_eigenvalue ( int n, float a[n][n], int it_max, float v[n][n],
-  float d[n], int *it_num, int *rot_num )
+void jacobi_eigenvalue(int n, float a[n][n], int it_max, float v[n][n],
+                       float d[n], int *it_num, int *rot_num)
 
 /******************************************************************************/
 /*
@@ -87,14 +87,14 @@ void jacobi_eigenvalue ( int n, float a[n][n], int it_max, float v[n][n],
   float w;
   float *zw;
 
-  r8mat_identity ( n, v );
+  r8mat_identity(n, v);
 
-  r8mat_diag_get_vector ( n, a, d );
+  r8mat_diag_get_vector(n, a, d);
 
-  bw = ( float * ) malloc ( n * sizeof ( float ) );
-  zw = ( float * ) malloc ( n * sizeof ( float ) );
+  bw = (float *)malloc(n * sizeof(float));
+  zw = (float *)malloc(n * sizeof(float));
 
-  for ( i = 0; i < n; i++ )
+  for (i = 0; i < n; i++)
   {
     bw[i] = d[i];
     zw[i] = 0.0;
@@ -102,173 +102,173 @@ void jacobi_eigenvalue ( int n, float a[n][n], int it_max, float v[n][n],
   *it_num = 0;
   *rot_num = 0;
 
-  while ( *it_num < it_max )
+  while (*it_num < it_max)
   {
     *it_num = *it_num + 1;
-/*
-  The convergence threshold is based on the size of the elements in
-  the strict upper triangle of the matrix.
-*/
+    /*
+      The convergence threshold is based on the size of the elements in
+      the strict upper triangle of the matrix.
+    */
     thresh = 0.0;
-    for ( j = 0; j < n; j++ )
+    for (j = 0; j < n; j++)
     {
-      for ( i = 0; i < j; i++ )
+      for (i = 0; i < j; i++)
       {
         thresh = thresh + a[j][i] * a[j][i];
       }
     }
 
-    thresh = sqrt ( thresh ) / ( float ) ( 4 * n );
+    thresh = sqrt(thresh) / (float)(4 * n);
 
-    if ( thresh == 0.0 )
+    if (thresh == 0.0)
     {
       break;
     }
 
-    for ( p = 0; p < n; p++ )
+    for (p = 0; p < n; p++)
     {
-      for ( q = p + 1; q < n; q++ )
+      for (q = p + 1; q < n; q++)
       {
-        gapq = 10.0 * fabs ( a[q][p] );
-        termp = gapq + fabs ( d[p] );
-        termq = gapq + fabs ( d[q] );
-/*
-  Annihilate tiny offdiagonal elements.
-*/
-        if ( 4 < *it_num &&
-             termp == fabs ( d[p] ) &&
-             termq == fabs ( d[q] ) )
+        gapq = 10.0 * fabs(a[q][p]);
+        termp = gapq + fabs(d[p]);
+        termq = gapq + fabs(d[q]);
+        /*
+          Annihilate tiny offdiagonal elements.
+        */
+        if (4 < *it_num &&
+            termp == fabs(d[p]) &&
+            termq == fabs(d[q]))
         {
           a[q][p] = 0.0;
         }
-/*
-  Otherwise, apply a rotation.
-*/
-        else if ( thresh <= fabs ( a[q][p] ) )
+        /*
+          Otherwise, apply a rotation.
+        */
+        else if (thresh <= fabs(a[q][p]))
         {
           h = d[q] - d[p];
-          term = fabs ( h ) + gapq;
+          term = fabs(h) + gapq;
 
-          if ( term == fabs ( h ) )
+          if (term == fabs(h))
           {
             t = a[q][p] / h;
           }
           else
           {
             theta = 0.5 * h / a[q][p];
-            t = 1.0 / ( fabs ( theta ) + sqrt ( 1.0 + theta * theta ) );
-            if ( theta < 0.0 )
+            t = 1.0 / (fabs(theta) + sqrt(1.0 + theta * theta));
+            if (theta < 0.0)
             {
-              t = - t;
+              t = -t;
             }
           }
-          c = 1.0 / sqrt ( 1.0 + t * t );
+          c = 1.0 / sqrt(1.0 + t * t);
           s = t * c;
-          tau = s / ( 1.0 + c );
+          tau = s / (1.0 + c);
           h = t * a[q][p];
-/*
-  Accumulate corrections to diagonal elements.
-*/
+          /*
+            Accumulate corrections to diagonal elements.
+          */
           zw[p] = zw[p] - h;
           zw[q] = zw[q] + h;
           d[p] = d[p] - h;
           d[q] = d[q] + h;
 
           a[q][p] = 0.0;
-/*
-  Rotate, using information from the upper triangle of A only.
-*/
-          for ( j = 0; j < p; j++ )
+          /*
+            Rotate, using information from the upper triangle of A only.
+          */
+          for (j = 0; j < p; j++)
           {
             g = a[p][j];
             h = a[q][j];
-            a[p][j] = g - s * ( h + g * tau );
-            a[q][j] = h + s * ( g - h * tau );
+            a[p][j] = g - s * (h + g * tau);
+            a[q][j] = h + s * (g - h * tau);
           }
 
-          for ( j = p + 1; j < q; j++ )
+          for (j = p + 1; j < q; j++)
           {
             g = a[j][p];
             h = a[q][j];
-            a[j][p] = g - s * ( h + g * tau );
-            a[q][j] = h + s * ( g - h * tau );
+            a[j][p] = g - s * (h + g * tau);
+            a[q][j] = h + s * (g - h * tau);
           }
 
-          for ( j = q + 1; j < n; j++ )
+          for (j = q + 1; j < n; j++)
           {
             g = a[j][p];
             h = a[j][p];
-            a[j][p] = g - s * ( h + g * tau );
-            a[j][p] = h + s * ( g - h * tau );
+            a[j][p] = g - s * (h + g * tau);
+            a[j][p] = h + s * (g - h * tau);
           }
-/*
-  Accumulate information in the eigenvector matrix.
-*/
-          for ( j = 0; j < n; j++ )
+          /*
+            Accumulate information in the eigenvector matrix.
+          */
+          for (j = 0; j < n; j++)
           {
             g = v[p][j];
             h = v[q][j];
-            v[p][j] = g - s * ( h + g * tau );
-            v[q][j] = h + s * ( g - h * tau );
+            v[p][j] = g - s * (h + g * tau);
+            v[q][j] = h + s * (g - h * tau);
           }
           *rot_num = *rot_num + 1;
         }
       }
     }
 
-    for ( i = 0; i < n; i++ )
+    for (i = 0; i < n; i++)
     {
       bw[i] = bw[i] + zw[i];
       d[i] = bw[i];
       zw[i] = 0.0;
     }
   }
-/*
-  Restore upper triangle of input matrix.
-*/
-  for ( j = 0; j < n; j++ )
+  /*
+    Restore upper triangle of input matrix.
+  */
+  for (j = 0; j < n; j++)
   {
-    for ( i = 0; i < j; i++ )
+    for (i = 0; i < j; i++)
     {
       a[j][i] = a[i][j];
     }
   }
-/*
-  Descending sort the eigenvalues and eigenvectors.
-*/
-  for ( k = 0; k < n - 1; k++ )
+  /*
+    Descending sort the eigenvalues and eigenvectors.
+  */
+  for (k = 0; k < n - 1; k++)
   {
     m = k;
-    for ( l = k + 1; l < n; l++ )
+    for (l = k + 1; l < n; l++)
     {
-      if ( d[l] > d[m] )
+      if (d[l] > d[m])
       {
         m = l;
       }
     }
 
-    if ( m != k )
+    if (m != k)
     {
-      t    = d[m];
+      t = d[m];
       d[m] = d[k];
       d[k] = t;
-      for ( i = 0; i < n; i++ )
+      for (i = 0; i < n; i++)
       {
-        w        = v[m][i];
+        w = v[m][i];
         v[m][i] = v[k][i];
         v[k][i] = w;
       }
     }
   }
 
-  free ( bw );
-  free ( zw );
+  free(bw);
+  free(zw);
 
   return;
 }
 /******************************************************************************/
 
-void r8mat_diag_get_vector ( int n, float a[n][n], float v[n] )
+void r8mat_diag_get_vector(int n, float a[n][n], float v[n])
 
 /******************************************************************************/
 /*
@@ -307,7 +307,7 @@ void r8mat_diag_get_vector ( int n, float a[n][n], float v[n] )
 {
   int i;
 
-  for ( i = 0; i < n; i++ )
+  for (i = 0; i < n; i++)
   {
     v[i] = a[i][i];
   }
@@ -316,7 +316,7 @@ void r8mat_diag_get_vector ( int n, float a[n][n], float v[n] )
 }
 /******************************************************************************/
 
-void r8mat_identity  ( int n, float a[n][n] )
+void r8mat_identity(int n, float a[n][n])
 
 /******************************************************************************/
 /*
@@ -353,10 +353,10 @@ void r8mat_identity  ( int n, float a[n][n] )
   int i;
   int j;
 
-  for ( j = 0; j < n; j++ )
+  for (j = 0; j < n; j++)
   {
     a[j][j] = 1.0;
-    for ( i = j+1; i < n; i++ )
+    for (i = j + 1; i < n; i++)
     {
       a[j][i] = 0.0;
       a[i][j] = 0.0;
@@ -367,8 +367,8 @@ void r8mat_identity  ( int n, float a[n][n] )
 }
 /******************************************************************************/
 
-float r8mat_is_eigen_right ( int n, int k, float a[], float x[],
-  float lambda[] )
+float r8mat_is_eigen_right(int n, int k, float a[], float x[],
+                           float lambda[])
 
 /******************************************************************************/
 /*
@@ -430,37 +430,37 @@ float r8mat_is_eigen_right ( int n, int k, float a[], float x[],
   int j;
   int l;
 
-  c = ( float * ) malloc ( n * k * sizeof ( float ) );
+  c = (float *)malloc(n * k * sizeof(float));
 
-  for ( j = 0; j < k; j++ )
+  for (j = 0; j < k; j++)
   {
-    for ( i = 0; i < n; i++ )
+    for (i = 0; i < n; i++)
     {
-      c[i+j*n] = 0.0;
-      for ( l = 0; l < n; l++ )
+      c[i + j * n] = 0.0;
+      for (l = 0; l < n; l++)
       {
-        c[i+j*n] = c[i+j*n] + a[i+l*n] * x[l+j*n];
+        c[i + j * n] = c[i + j * n] + a[i + l * n] * x[l + j * n];
       }
     }
   }
 
-  for ( j = 0; j < k; j++ )
+  for (j = 0; j < k; j++)
   {
-    for ( i = 0; i < n; i++ )
+    for (i = 0; i < n; i++)
     {
-      c[i+j*n] = c[i+j*n] - lambda[j] * x[i+j*n];
+      c[i + j * n] = c[i + j * n] - lambda[j] * x[i + j * n];
     }
   }
 
-  error_frobenius = r8mat_norm_fro ( n, k, c );
+  error_frobenius = r8mat_norm_fro(n, k, c);
 
-  free ( c );
+  free(c);
 
   return error_frobenius;
 }
 /******************************************************************************/
 
-float r8mat_norm_fro ( int m, int n, float a[] )
+float r8mat_norm_fro(int m, int n, float a[])
 
 /******************************************************************************/
 /*
@@ -513,20 +513,20 @@ float r8mat_norm_fro ( int m, int n, float a[] )
   float value;
 
   value = 0.0;
-  for ( j = 0; j < n; j++ )
+  for (j = 0; j < n; j++)
   {
-    for ( i = 0; i < m; i++ )
+    for (i = 0; i < m; i++)
     {
-      value = value + pow ( a[i+j*m], 2 );
+      value = value + pow(a[i + j * m], 2);
     }
   }
-  value = sqrt ( value );
+  value = sqrt(value);
 
   return value;
 }
 /******************************************************************************/
 
-void r8mat_print ( int m, int n, float a[], char *title )
+void r8mat_print(int m, int n, float a[], char *title)
 
 /******************************************************************************/
 /*
@@ -564,14 +564,14 @@ void r8mat_print ( int m, int n, float a[], char *title )
     char *TITLE, a title.
 */
 {
-  r8mat_print_some ( m, n, a, 1, 1, m, n, title );
+  r8mat_print_some(m, n, a, 1, 1, m, n, title);
 
   return;
 }
 /******************************************************************************/
 
-void r8mat_print_some ( int m, int n, float a[], int ilo, int jlo, int ihi,
-  int jhi, char *title )
+void r8mat_print_some(int m, int n, float a[], int ilo, int jlo, int ihi,
+                      int jhi, char *title)
 
 /******************************************************************************/
 /*
@@ -612,7 +612,7 @@ void r8mat_print_some ( int m, int n, float a[], int ilo, int jlo, int ihi,
     char *TITLE, a title.
 */
 {
-# define INCX 5
+#define INCX 5
 
   int i;
   int i2hi;
@@ -621,48 +621,48 @@ void r8mat_print_some ( int m, int n, float a[], int ilo, int jlo, int ihi,
   int j2hi;
   int j2lo;
 
-  fprintf ( stdout, "\n" );
-  fprintf ( stdout, "%s\n", title );
+  fprintf(stdout, "\n");
+  fprintf(stdout, "%s\n", title);
 
-  if ( m <= 0 || n <= 0 )
+  if (m <= 0 || n <= 0)
   {
-    fprintf ( stdout, "\n" );
-    fprintf ( stdout, "  (None)\n" );
+    fprintf(stdout, "\n");
+    fprintf(stdout, "  (None)\n");
     return;
   }
-/*
-  Print the columns of the matrix, in strips of 5.
-*/
-  for ( j2lo = jlo; j2lo <= jhi; j2lo = j2lo + INCX )
+  /*
+    Print the columns of the matrix, in strips of 5.
+  */
+  for (j2lo = jlo; j2lo <= jhi; j2lo = j2lo + INCX)
   {
     j2hi = j2lo + INCX - 1;
-    if ( n < j2hi )
+    if (n < j2hi)
     {
       j2hi = n;
     }
-    if ( jhi < j2hi )
+    if (jhi < j2hi)
     {
       j2hi = jhi;
     }
 
-    fprintf ( stdout, "\n" );
-/*
-  For each column J in the current range...
+    fprintf(stdout, "\n");
+    /*
+      For each column J in the current range...
 
-  Write the header.
-*/
-    fprintf ( stdout, "  Col:  ");
-    for ( j = j2lo; j <= j2hi; j++ )
+      Write the header.
+    */
+    fprintf(stdout, "  Col:  ");
+    for (j = j2lo; j <= j2hi; j++)
     {
-      fprintf ( stdout, "  %7d     ", j - 1 );
+      fprintf(stdout, "  %7d     ", j - 1);
     }
-    fprintf ( stdout, "\n" );
-    fprintf ( stdout, "  Row\n" );
-    fprintf ( stdout, "\n" );
-/*
-  Determine the range of the rows in this strip.
-*/
-    if ( 1 < ilo )
+    fprintf(stdout, "\n");
+    fprintf(stdout, "  Row\n");
+    fprintf(stdout, "\n");
+    /*
+      Determine the range of the rows in this strip.
+    */
+    if (1 < ilo)
     {
       i2lo = ilo;
     }
@@ -670,7 +670,7 @@ void r8mat_print_some ( int m, int n, float a[], int ilo, int jlo, int ihi,
     {
       i2lo = 1;
     }
-    if ( m < ihi )
+    if (m < ihi)
     {
       i2hi = m;
     }
@@ -679,26 +679,26 @@ void r8mat_print_some ( int m, int n, float a[], int ilo, int jlo, int ihi,
       i2hi = ihi;
     }
 
-    for ( i = i2lo; i <= i2hi; i++ )
+    for (i = i2lo; i <= i2hi; i++)
     {
-/*
-  Print out (up to) 5 entries in row I, that lie in the current strip.
-*/
-      fprintf ( stdout, "%5d:", i - 1 );
-      for ( j = j2lo; j <= j2hi; j++ )
+      /*
+        Print out (up to) 5 entries in row I, that lie in the current strip.
+      */
+      fprintf(stdout, "%5d:", i - 1);
+      for (j = j2lo; j <= j2hi; j++)
       {
-        fprintf ( stdout, "  %14f", a[i-1+(j-1)*m] );
+        fprintf(stdout, "  %14f", a[i - 1 + (j - 1) * m]);
       }
-      fprintf ( stdout, "\n" );
+      fprintf(stdout, "\n");
     }
   }
 
   return;
-# undef INCX
+#undef INCX
 }
 /******************************************************************************/
 
-void r8vec_print ( int n, float a[], char *title )
+void r8vec_print(int n, float a[], char *title)
 
 /******************************************************************************/
 /*
@@ -733,19 +733,19 @@ void r8vec_print ( int n, float a[], char *title )
 {
   int i;
 
-  fprintf ( stdout, "\n" );
-  fprintf ( stdout, "%s\n", title );
-  fprintf ( stdout, "\n" );
-  for ( i = 0; i < n; i++ )
+  fprintf(stdout, "\n");
+  fprintf(stdout, "%s\n", title);
+  fprintf(stdout, "\n");
+  for (i = 0; i < n; i++)
   {
-    fprintf ( stdout, "  %8d: %14f\n", i, a[i] );
+    fprintf(stdout, "  %8d: %14f\n", i, a[i]);
   }
 
   return;
 }
 /******************************************************************************/
 
-void timestamp ( )
+void timestamp()
 
 /******************************************************************************/
 /*
@@ -770,19 +770,19 @@ void timestamp ( )
     John Burkardt
 */
 {
-# define TIME_SIZE 40
+#define TIME_SIZE 40
 
   static char time_buffer[TIME_SIZE];
   const struct tm *tm;
   time_t now;
 
-  now = time ( NULL );
-  tm = localtime ( &now );
+  now = time(NULL);
+  tm = localtime(&now);
 
-  strftime ( time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm );
+  strftime(time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm);
 
-  fprintf ( stdout, "%s\n", time_buffer );
+  fprintf(stdout, "%s\n", time_buffer);
 
   return;
-# undef TIME_SIZE
+#undef TIME_SIZE
 }
